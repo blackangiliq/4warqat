@@ -69,19 +69,16 @@
     <h1>4 Warqat</h1>
     <div class="slider-container">
       <div class="slider">
-        <img src="https://i.ibb.co/8rzGxYG/logo.png" alt="4 Warqat Restaurant Logo">
+        <img id="logoImage" src="https://i.ibb.co/8rzGxYG/logo.png" alt="4 Warqat Restaurant Logo">
       </div>
     </div>
   </div>
 
   <div class="additional-images">
-
-    <img src="https://i.ibb.co/Yh60Ctq/canvas.png" alt="Additional Image 2">
-    <img src="https://i.ibb.co/CBbytFy/canvas2.png" alt="Additional Image 3">
-    <img src="https://i.ibb.co/Yb30fy8/canva4s.png" alt="Additional Image 4">
-    <img src="https://i.ibb.co/thwm63F/canvas5.png" alt="Additional Image 5">
-    <img src="https://i.ibb.co/ncznfWp/canvas6.png" alt="Additional Image 6">
-    <!-- Add more images as needed -->
+    <img src="https://i.ibb.co/CBbytFy/canvas2.png" alt="Additional Image 3" data-logo-src="https://i.ibb.co/8rzGxYG/logo.png">
+    <img src="https://i.ibb.co/Yb30fy8/canva4s.png" alt="Additional Image 4" data-logo-src="https://i.ibb.co/Yb30fy8/canva4s.png">
+    <img src="https://i.ibb.co/thwm63F/canvas5.png" alt="Additional Image 5" data-logo-src="https://i.ibb.co/thwm63F/canvas5.png">
+    <img src="https://i.ibb.co/ncznfWp/canvas6.png" alt="Additional Image 6" data-logo-src="https://i.ibb.co/ncznfWp/canvas6.png">
   </div>
 
   <div class="divider"></div>
@@ -95,6 +92,24 @@
       <!-- Add more images as needed -->
     </div>
   </div>
+
+  <!-- JavaScript code to change the logo when an additional image is clicked -->
+  <script>
+    // Get references to the logo image and additional images
+    const logoImage = document.getElementById('logoImage');
+    const additionalImages = document.querySelectorAll('.additional-images img');
+
+    // Add click event listeners to each additional image
+    additionalImages.forEach(image => {
+      image.addEventListener('click', function () {
+        // Get the data-logo-src attribute value of the clicked image
+        const newLogoSrc = this.getAttribute('data-logo-src');
+        
+        // Change the src attribute of the logo image to the newLogoSrc
+        logoImage.src = newLogoSrc;
+      });
+    });
+  </script>
 
 </body>
 </html>
